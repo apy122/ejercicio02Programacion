@@ -71,42 +71,40 @@ public class Fiesta {
 	// Método para sumar invitados
 	public void invitar(int invitados) {
 		this.invitados += invitados;
-		System.out.println("Cantidad de invitados actual: " + this.invitados);
 	}
-
-	// Método para mostrar el número actual de invitados
-	public void mostrarInvitados() {
-		System.out.println("Número actual de invitados: " + this.invitados);
+	public void invitar() {
+		invitar(invitados);
 	}
 
 	// Método para restar invitados
 	public void retirarInvitacion(int invitados) {
-		this.invitados -= invitados;
 		if (this.invitados < 0) {
-			this.invitados = 0; // Aseguramos que no haya un número negativo de invitados
-		}
-		System.out.println("Cantidad de invitados actual: " + this.invitados);
+			this.invitados = 0;
+		}else
+		this.invitados= this.invitados -= invitados;
 	}
+	public void retirarInvitacion() {
+			retirarInvitacion(invitados);
+			}
+	
 
 	// Método para agregar invitados a través de entrada de usuario
-	public void agregarInvitaciones() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Introduce número de invitaciones: ");
-		int nuevosInvitados = scanner.nextInt();
-		this.invitados += nuevosInvitados;
-		System.out.println("Cantidad de invitados actual: " + this.invitados);
-	}
+	public void agregarInvitaciones(int nuevosInvitados) {
+        if (nuevosInvitados > 0) {
+            this.invitados += nuevosInvitados;
+        }
+    }
 
-	// Sobrecarga de agregarInvitaciones para agregar una cantidad específica
-	public void agregarInvitaciones(int invitados) {
-		this.invitados += invitados;
-		System.out.println("Cantidad de invitados después de agregar: " + this.invitados);
-	}
+    public void agregarInvitaciones() {
+        agregarInvitaciones(1); // Default to adding 1 invitation if no number is specified
+    }
 
 	// Modificación de toString para imprimir los detalles de la fiesta
+
 	@Override
 	public String toString() {
-		return "Fiesta [tipoFiesta=" + tipoFiesta + ", direccion=" + direcccion + ", bocadillos=" + bocadillos
+		return "Fiesta [tipoFiesta=" + tipoFiesta + ", direcccion=" + direcccion + ", bocadillos=" + bocadillos
 				+ ", bebidas=" + bebidas + ", invitados=" + invitados + "]";
 	}
+	
 }
