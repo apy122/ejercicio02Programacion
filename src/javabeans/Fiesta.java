@@ -67,28 +67,35 @@ public class Fiesta {
 	public void setInvitados(int invitados) {
 		this.invitados = invitados;
 	}
-
-	// Método para sumar invitados
+	
+	// Modificación de toString para imprimir los detalles de la fiesta
+		@Override
+		public String toString() {
+			return "Fiesta [tipoFiesta=" + tipoFiesta + ", direcccion=" + direcccion + ", bocadillos=" + bocadillos
+					+ ", bebidas=" + bebidas + ", invitados=" + invitados + "]";
+		}
+		
+	// Método para sumar invitados y sobrecarga
 	public void invitar(int invitados) {
 		this.invitados += invitados;
 	}
 	public void invitar() {
-		invitar(invitados);
+		invitados =+1;
 	}
 
-	// Método para restar invitados
+	// Método para restar invitados y sobrecarga
 	public void retirarInvitacion(int invitados) {
 		if (this.invitados < 0) {
 			this.invitados = 0;
 		}else
-		this.invitados= this.invitados -= invitados;
+		this.invitados= this.invitados - invitados;
 	}
 	public void retirarInvitacion() {
-			retirarInvitacion(invitados);
+			invitados -=1;
 			}
 	
 
-	// Método para agregar invitados a través de entrada de usuario
+	// Método para agregar invitados  y sobrecarga
 	public void agregarInvitaciones(int nuevosInvitados) {
         if (nuevosInvitados > 0) {
             this.invitados += nuevosInvitados;
@@ -96,15 +103,9 @@ public class Fiesta {
     }
 
     public void agregarInvitaciones() {
-        agregarInvitaciones(1); // Default to adding 1 invitation if no number is specified
+        agregarInvitaciones(1);
     }
 
-	// Modificación de toString para imprimir los detalles de la fiesta
 
-	@Override
-	public String toString() {
-		return "Fiesta [tipoFiesta=" + tipoFiesta + ", direcccion=" + direcccion + ", bocadillos=" + bocadillos
-				+ ", bebidas=" + bebidas + ", invitados=" + invitados + "]";
-	}
 	
 }

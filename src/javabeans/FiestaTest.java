@@ -17,7 +17,7 @@ public class FiestaTest {
 		
 		fies1.invitar(100);
 		fies1.retirarInvitacion(60);
-		fies1.agregarInvitaciones(10);
+		fies1.agregarInvitaciones();
 	
 		System.out.println(fies1);
 		}
