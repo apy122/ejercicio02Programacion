@@ -9,25 +9,30 @@ public class Fiesta {
 	private int bocadillos;
 	private int bebidas;
 	private int invitados;
-
-	// Constructor con atributos y vacío
+	
+	int PRECIOINVITADO=5;
+	int PRECIOBEBIDA=2;
+	int PRECIOBOCADILLO=3;
+	
 	public Fiesta(String tipoFiesta, String direcccion, int bocadillos, int bebidas, int invitados) {
+		super();
 		this.tipoFiesta = tipoFiesta;
 		this.direcccion = direcccion;
 		this.bocadillos = bocadillos;
 		this.bebidas = bebidas;
 		this.invitados = invitados;
 	}
-
+	
 	public Fiesta() {
-		this.tipoFiesta = "Desconocida";
-		this.direcccion = "Desconocida";
+		super();
+		this.tipoFiesta = "Desconocido";
+		this.direcccion = "Desconocido";
 		this.bocadillos = 0;
 		this.bebidas = 0;
 		this.invitados = 0;
 	}
+	
 
-	// Métodos getter y setter
 	public String getTipoFiesta() {
 		return tipoFiesta;
 	}
@@ -68,13 +73,13 @@ public class Fiesta {
 		this.invitados = invitados;
 	}
 	
-	// Modificación de toString para imprimir los detalles de la fiesta
-		@Override
-		public String toString() {
-			return "Fiesta [tipoFiesta=" + tipoFiesta + ", direcccion=" + direcccion + ", bocadillos=" + bocadillos
-					+ ", bebidas=" + bebidas + ", invitados=" + invitados + "]";
-		}
-		
+	//Editamos toString
+	@Override
+	public String toString() {
+		return "Fiesta [tipoFiesta=" + tipoFiesta + ", direcccion=" + direcccion + ", bocadillos=" + bocadillos
+				+ ", bebidas=" + bebidas + ", invitados=" + invitados;
+	}
+
 	// Método para sumar invitados y sobrecarga
 	public void invitar(int invitados) {
 		this.invitados += invitados;
@@ -105,7 +110,10 @@ public class Fiesta {
     public void agregarInvitaciones() {
         agregarInvitaciones(1);
     }
-
-
-	
+    
+    //Genera presupuestoTotal por x personas  1bocata/1bebida/1persona
+    public int presupuestoPrecioFiesta() {
+    	int precioTotal= (invitados*PRECIOINVITADO)+(bebidas*PRECIOBEBIDA)+ (bocadillos*PRECIOBEBIDA);
+    	return precioTotal;
+    }
 }

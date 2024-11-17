@@ -12,13 +12,14 @@ public class FiestaTest {
 		String dateString= fechaActual.format(Formatter);
 		System.out.println("La fecha actual es:"+ dateString);
 		
-		Fiesta fies1= new Fiesta("Pijamada", "mi casa",0,0,0);
-		System.out.println(fies1);
+		Fiesta fies1= new Fiesta("Pijamada", "casa", 0, 0, 0);
 		
+		System.out.println(fies1);
 		fies1.invitar(100);
 		fies1.retirarInvitacion(60);
 		fies1.agregarInvitaciones();
-	
+		int total=fies1.presupuestoPrecioFiesta();
+		System.out.println(total);
 		System.out.println(fies1);
 		}
 }
